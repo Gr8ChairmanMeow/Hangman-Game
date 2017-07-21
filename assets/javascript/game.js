@@ -94,7 +94,8 @@ document.onkeyup = function(event) {
 				variables.counter = 0;
 				variables.wins = 0;
 				variables.remaining = 15;
-				hidden_word = variables.hidden("");
+				the_word = variables.word();
+				hidden_word = variables.hidden(the_word);
 			}
 			else{
 				$loser.innerHTML = "<h1>GO HOME LOSER >:(</h1>"
@@ -113,7 +114,8 @@ document.onkeyup = function(event) {
 			variables.counter = 0;
 			variables.wins = 0;
 			variables.remaining = 15;
-			hidden_word = variables.hidden("");
+			the_word = variables.word();
+			hidden_word = variables.hidden(the_word);
 			}
 		else{
 			$loser.innerHTML = "<h1>GO HOME LOSER >:(</h1>"
