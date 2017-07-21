@@ -55,24 +55,26 @@ var the_word = variables.word();
 var hidden_word = variables.hidden(the_word);
 
 document.onkeyup = function(event) {
-	//variables.counter++;
-	variables.remaining--;
-	variables.wins++;
-
+	variables.counter++;
 	var key = event.key;
 	var $guesses = document.getElementById("guesses");
 	var $word = document.getElementById("word");
 	var $remaining = document.getElementById("remaining");
 	var $wins = document.getElementById("wins");
+	var $loser = document.getElementById("container")
 	var check = variables.guesses.indexOf(key);
 	var check_guess = the_word.indexOf(key);
 	//may need to comment out below
 	//var the_word = variables.word();
 
 	//var hidden_word = variables.hidden(the_word);
-
-	if (check === -1){
+	console.log(check + " " + check_guess);
+	if (check === -1 && variables.counter>1){
 		variables.guesses.push(key);
+	}
+	
+	if(check_guess === -1 && check === -1 && variables.counter > 1){
+		variables.remaining--;
 	}
 
 	if (check_guess > -1){
@@ -84,12 +86,38 @@ document.onkeyup = function(event) {
 			//console.log(correctArr[k]);
 		};
 		hidden_word = hiddenArr.join("");
+
+		if (hidden_word === the_word) {
+			variables.wins++;
+			if(confirm("Would you like to play again?")){
+				variables.guesses = [];
+				variables.counter = 0;
+				variables.wins = 0;
+				variables.remaining = 15;
+				hidden_word = variables.hidden("");
+			}
+			else{
+				$loser.innerHTML = "<h1>GO HOME LOSER >:(</h1>"
+			}
+		}
+
 		//console.log(hidden_word);
 		//$word.innerHTML = hidden_word;
 	}
+	
 
 	if (variables.remaining === 0){
 		alert("You lost!")
+		if(confirm("Would you like to play again?")){
+			variables.guesses = [];
+			variables.counter = 0;
+			variables.wins = 0;
+			variables.remaining = 15;
+			hidden_word = variables.hidden("");
+			}
+		else{
+			$loser.innerHTML = "<h1>GO HOME LOSER >:(</h1>"
+		}
 	}
 	
 	$guesses.innerHTML = variables.guesses;
@@ -103,5 +131,5 @@ document.onkeyup = function(event) {
 
 	//variables.indexArr(the_word,key);
 	//console.log(the_word);
-	variables.hidden(the_word);
+	//variables.hidden(the_word);
 }
