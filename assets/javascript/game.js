@@ -17,7 +17,7 @@ var variables = {
 		            indexes.push(i);
 		        }
 		    }
-		    console.log(indexes);
+		    //console.log(indexes);
 		    return indexes;
 		},
 	hidden: function(word){
@@ -80,8 +80,8 @@ document.onkeyup = function(event) {
 		var hiddenArr = hidden_word.split("");
 		for (k=0;k<correctArr.length;k++){
 			hiddenArr[correctArr[k]] = hiddenArr[correctArr[k]].replace(/-/g,key);
-			console.log(hiddenArr);
-			console.log(correctArr[k]);
+			//console.log(hiddenArr);
+			//console.log(correctArr[k]);
 		};
 		hidden_word = hiddenArr.join("");
 		//console.log(hidden_word);
@@ -102,6 +102,6 @@ document.onkeyup = function(event) {
 	//variables.indexArr(variables.words,"kitten");
 
 	//variables.indexArr(the_word,key);
-	console.log(the_word);
+	//console.log(the_word);
 	variables.hidden(the_word);
 }
