@@ -92,7 +92,7 @@ document.onkeyup = function(event) {
 			if(confirm("Would you like to play again?")){
 				variables.guesses = [];
 				variables.counter = 0;
-				variables.wins = 0;
+				//variables.wins = 0;
 				variables.remaining = 15;
 				the_word = variables.word();
 				hidden_word = variables.hidden(the_word);
@@ -112,7 +112,7 @@ document.onkeyup = function(event) {
 		if(confirm("Would you like to play again?")){
 			variables.guesses = [];
 			variables.counter = 0;
-			variables.wins = 0;
+			//variables.wins = 0;
 			variables.remaining = 15;
 			the_word = variables.word();
 			hidden_word = variables.hidden(the_word);
