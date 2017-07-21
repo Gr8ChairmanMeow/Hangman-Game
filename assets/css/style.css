@@ -40,7 +40,11 @@ header p{
    clear: both;
 }
 
+
+
 .white-box{
+	vertical-align: top;
+	padding-top:2em;
 	border:white dotted 2px;
 	height:600px;
 	width:200px;
@@ -49,4 +53,9 @@ header p{
 
 #container{
 	width:100%;	
+}
+
+#word{
+	letter-spacing: 15px;
+	padding-left:10px;
 }
